@@ -1,4 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
+<<<<<<< HEAD
 ::res://::1743547342
 export_presets.cfg::TextFile::-1::1743546489::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::3308742728485724341::1743546489::1743547342::1::::<><><>0<>0<>44a369bf661528297fa156ebcfdbbfba<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
@@ -23,3 +24,29 @@ Main.gd::GDScript::547942852541432654::1743546489::0::1::::<>Node2D<><>0<>0<><>:
 EnemyUnitCardData.gd::GDScript::7377357967852348842::1743546489::0::1::::EnemyUnitCardData<>Resource<><>0<>0<><>::
 PlayerUnitCardData.gd::GDScript::1930111010298320175::1743546489::0::1::::PlayerUnitCardData<>Resource<><>0<>0<><>::
 SpellCardData.gd::GDScript::8788066851767141305::1743546489::0::1::::SpellCardData<>Resource<><>0<>0<><>::
+=======
+::res://::1743546632
+export_presets.cfg::TextFile::-1::1743546588::0::1::::<><><>0<>0<><>::
+icon.svg::CompressedTexture2D::3308742728485724341::1743546588::1743546633::1::::<><><>0<>0<>44a369bf661528297fa156ebcfdbbfba<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://Art/::1743546588
+board.png::CompressedTexture2D::5208946056947101240::1743546588::1743546633::1::::<><><>0<>0<>541461262fabb3121f297813101e2219<>res://.godot/imported/board.png-2846963fbc67a6b56c30cfe49beb5899.ctex::
+demo_card.png::CompressedTexture2D::1766522282187300584::1743546588::1743546633::1::::<><><>0<>0<>5b6ac901c24318e386e2477b99be7648<>res://.godot/imported/demo_card.png-2570ee59f190b884c24b65e4528f3882.ctex::
+::res://Scenes/::1743546588
+board.tscn::PackedScene::2005838385291679838::1743546588::0::1::::<><><>0<>0<><>::uid://dll48818acs0m::::res://Scripts/Board.gd<>uid://cghit0c2u3npg::::res://Art/board.png
+card.tscn::PackedScene::7253297598392891327::1743546588::0::1::::<><><>0<>0<><>::uid://b746ww1d4vdfs::::res://Scripts/Card.gd<>uid://0fymmwsv378w::::res://Art/demo_card.png<>uid://bne1rk1rcedcf::::res://icon.svg
+game_timer.tscn::PackedScene::2983507798527757838::1743546588::0::1::::<><><>0<>0<><>::uid://yjdeekenv05n::::res://Scripts/GameTimer.gd
+hand.tscn::PackedScene::8542712112322405073::1743546588::0::1::::<><><>0<>0<><>::uid://bj30vd15s2kh8::::res://Scripts/Hand.gd<>uid://dbls0s823lvul::::res://Scenes/card.tscn
+main.tscn::PackedScene::7279025657012732081::1743546588::0::1::::<><><>0<>0<><>::uid://h2osk1c25wtq::::res://Scripts/Main.gd<>uid://dbls0s823lvul::::res://Scenes/card.tscn<>uid://3tv4od25drhu::::res://Scenes/board.tscn<>uid://birh642khjy43::::res://Scenes/game_timer.tscn
+::res://Scripts/::1743546588
+Board.gd::GDScript::7955868985316344790::1743546588::0::1::::Board<>Control<><>0<>0<><>::
+Card.gd::GDScript::4694253345074045984::1743546588::0::1::::Card<>Control<><>0<>0<><>::
+Deck.gd::GDScript::8263532885895123541::1743546588::0::1::::Deck<>Control<><>0<>0<><>::
+GameTimer.gd::GDScript::1703301166994648293::1743546588::0::1::::GameTimer<>Control<><>0<>0<><>::
+GlobalData.gd::GDScript::4329308987876020181::1743546588::0::1::::<>Node<><>0<>0<><>::
+Hand.gd::GDScript::3077478479163385711::1743546588::0::1::::Hand<>Control<><>0<>0<><>::
+Main.gd::GDScript::547942852541432654::1743546588::0::1::::<>Node2D<><>0<>0<><>::
+::res://Scripts/CardData/::1743546588
+EnemyUnitCardData.gd::GDScript::7377357967852348842::1743546588::0::1::::EnemyUnitCardData<>Resource<><>0<>0<><>::
+PlayerUnitCardData.gd::GDScript::1930111010298320175::1743546588::0::1::::PlayerUnitCardData<>Resource<><>0<>0<><>::
+SpellCardData.gd::GDScript::8788066851767141305::1743546588::0::1::::SpellCardData<>Resource<><>0<>0<><>::
+>>>>>>> ede0a9413e979af331d1fdbaa0946501c86046b8
