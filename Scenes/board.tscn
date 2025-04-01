@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://3tv4od25drhu"]
+
+[ext_resource type="Script" uid="uid://dll48818acs0m" path="res://Scripts/Board.gd" id="1_tnbny"]
+[ext_resource type="Texture2D" uid="uid://cghit0c2u3npg" path="res://Art/board.png" id="2_2wvcj"]
+
+[node name="Board" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1930.0
+offset_bottom = 1082.0
+script = ExtResource("1_tnbny")
+metadata/_custom_type_script = "uid://dll48818acs0m"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_2wvcj")

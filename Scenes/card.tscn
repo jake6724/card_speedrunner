@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbls0s823lvul"]
+
+[ext_resource type="Script" uid="uid://b746ww1d4vdfs" path="res://Scripts/Card.gd" id="1_0qqmn"]
+[ext_resource type="Texture2D" uid="uid://0fymmwsv378w" path="res://Art/demo_card.png" id="2_wf8id"]
+[ext_resource type="Texture2D" uid="uid://bne1rk1rcedcf" path="res://icon.svg" id="3_brehn"]
+
+[node name="Card" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_0qqmn")
+metadata/_custom_type_script = "uid://b746ww1d4vdfs"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_wf8id")
+
+[node name="DamageSprite" type="Sprite2D" parent="Sprite"]
+z_index = 999
+position = Vector2(168, -308)
+texture = ExtResource("3_brehn")
+
+[node name="Name" type="RichTextLabel" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = -175.0
+offset_top = -330.0
+offset_right = 57.0
+offset_bottom = -265.0
+theme_override_colors/default_color = Color(0.0431373, 0.368627, 1, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "Demo Card
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Info" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = -171.0
+offset_top = 38.0
+offset_right = 175.0
+offset_bottom = 307.0
+theme_override_colors/default_color = Color(0.0431373, 0.368627, 1, 1)
+theme_override_font_sizes/normal_font_size = 35
+text = "Sample card info and shit this card can turn into a dog and bark"
+horizontal_alignment = 1
+vertical_alignment = 1

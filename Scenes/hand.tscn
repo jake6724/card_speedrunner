@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtyfhq08gt8wj"]
+
+[ext_resource type="Script" uid="uid://bj30vd15s2kh8" path="res://Scripts/Hand.gd" id="1_f6hnx"]
+[ext_resource type="PackedScene" uid="uid://dbls0s823lvul" path="res://Scenes/card.tscn" id="2_u7o8q"]
+
+[node name="Hand" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_f6hnx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 2719.0
+offset_bottom = 1050.0
+theme_override_constants/separation = 550
+
+[node name="Card" parent="HBoxContainer" instance=ExtResource("2_u7o8q")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Card2" parent="HBoxContainer" instance=ExtResource("2_u7o8q")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Card3" parent="HBoxContainer" instance=ExtResource("2_u7o8q")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Card4" parent="HBoxContainer" instance=ExtResource("2_u7o8q")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4

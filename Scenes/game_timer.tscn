@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://birh642khjy43"]
+
+[ext_resource type="Script" uid="uid://yjdeekenv05n" path="res://Scripts/GameTimer.gd" id="1_xyruv"]
+
+[node name="GameTimer" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_xyruv")
+metadata/_custom_type_script = "uid://yjdeekenv05n"
+
+[node name="Display" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 133.0
+offset_bottom = 40.0
+text = "1:00"

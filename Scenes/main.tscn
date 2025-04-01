@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbyaqvnjkj7g4"]
+
+[ext_resource type="Script" uid="uid://h2osk1c25wtq" path="res://Scripts/Main.gd" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://dbls0s823lvul" path="res://Scenes/card.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://3tv4od25drhu" path="res://Scenes/board.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://birh642khjy43" path="res://Scenes/game_timer.tscn" id="4_jjvhh"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_jjgbg")
+
+[node name="Board" parent="." instance=ExtResource("3_8gbba")]
+
+[node name="GameTimer" parent="." instance=ExtResource("4_jjvhh")]
+offset_left = 1803.0
+offset_top = 37.0
+offset_right = 1843.0
+offset_bottom = 77.0
+
+[node name="Card" parent="." instance=ExtResource("2_bo1nx")]
+offset_left = 407.0
+offset_top = 236.0
+offset_right = 447.0
+offset_bottom = 276.0
+
+[node name="Card2" parent="." instance=ExtResource("2_bo1nx")]
+offset_left = 1201.0
+offset_top = 786.0
+offset_right = 1241.0
+offset_bottom = 826.0
+
+[node name="Card3" parent="." instance=ExtResource("2_bo1nx")]
+offset_left = 814.0
+offset_top = 789.0
+offset_right = 854.0
+offset_bottom = 829.0
+
+[node name="Card4" parent="." instance=ExtResource("2_bo1nx")]
+offset_left = 468.0
+offset_top = 706.0
+offset_right = 508.0
+offset_bottom = 746.0
+
+[node name="Card5" parent="." instance=ExtResource("2_bo1nx")]
+offset_left = 1230.0
+offset_top = 347.0
+offset_right = 1270.0
+offset_bottom = 387.0
+
+[node name="Card6" parent="." instance=ExtResource("2_bo1nx")]
+offset_left = 806.0
+offset_top = 349.0
+offset_right = 846.0
+offset_bottom = 389.0
