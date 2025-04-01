@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SpellCardData" load_steps=2 format=3 uid="uid://whakj1cvfppo"]
+
+[ext_resource type="Script" uid="uid://dxhagaytypegf" path="res://Scripts/CardData/SpellCardData.gd" id="1_ibsq1"]
+
+[resource]
+script = ExtResource("1_ibsq1")
+damage = 4.0
+target = 0
+can_knockback = false
+name = ""
+desc = ""
+metadata/_custom_type_script = "uid://dxhagaytypegf"

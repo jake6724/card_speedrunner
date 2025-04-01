@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyUnitCardData" load_steps=2 format=3 uid="uid://bybknpajmpuq7"]
+
+[ext_resource type="Script" uid="uid://dddwajd6cemp3" path="res://Scripts/CardData/EnemyUnitCardData.gd" id="1_m4dgk"]
+
+[resource]
+script = ExtResource("1_m4dgk")
+power = 7.0
+name = "Enemy4"
+desc = "Test"
+metadata/_custom_type_script = "uid://dddwajd6cemp3"

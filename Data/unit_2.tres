@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlayerUnitCardData" load_steps=2 format=3 uid="uid://o7d2mmuvmnb"]
+
+[ext_resource type="Script" uid="uid://2q7v8gat5h08" path="res://Scripts/CardData/PlayerUnitCardData.gd" id="1_2qqt6"]
+
+[resource]
+script = ExtResource("1_2qqt6")
+power = 2.0
+health = 4.0
+name = "Unit2"
+desc = "Test"
+metadata/_custom_type_script = "uid://2q7v8gat5h08"
