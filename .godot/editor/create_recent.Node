@@ -1,3 +1,4 @@
+Control
 Label
 CenterContainer
 RichTextLabel
@@ -10,5 +11,4 @@ HBoxContainer
 TextureRect
 TextEdit
 Deck
-Control
 Hand

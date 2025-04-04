@@ -1,22 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbyaqvnjkj7g4"]
+[gd_scene load_steps=6 format=3 uid="uid://dbyaqvnjkj7g4"]
 
 [ext_resource type="Script" uid="uid://h2osk1c25wtq" path="res://Scripts/Main.gd" id="1_jjgbg"]
 [ext_resource type="Script" path="res://Scripts/Deck.gd" id="2_jjvhh"]
+[ext_resource type="Script" uid="uid://58j1q1bd4aft" path="res://Scripts/Grid.gd" id="3_6bp64"]
 [ext_resource type="Script" uid="uid://yjdeekenv05n" path="res://Scripts/GameTimer.gd" id="3_8gbba"]
-[ext_resource type="PackedScene" uid="uid://dbls0s823lvul" path="res://Scenes/card.tscn" id="3_jjvhh"]
 [ext_resource type="Script" uid="uid://bj30vd15s2kh8" path="res://Scripts/Hand.gd" id="4_kry3j"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmcdd"]
-bg_color = Color(0.915189, 0.915189, 0.915189, 1)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
-border_color = Color(0.188235, 0.47451, 1, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -37,6 +25,7 @@ anchor_bottom = 1.0
 offset_bottom = 139.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_top = 25
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -72,129 +61,15 @@ script = ExtResource("2_jjvhh")
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Lanes" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Gameboard"]
-custom_minimum_size = Vector2(0, 1015)
+[node name="Grid" type="Control" parent="MarginContainer/HBoxContainer/Gameboard"]
+custom_minimum_size = Vector2(0, 900)
 layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Lane1" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Gameboard/Lanes"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_constants/separation = 40
-
-[node name="Card" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane1" instance=ExtResource("3_jjvhh")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
-
-[node name="Card2" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane1" instance=ExtResource("3_jjvhh")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
-
-[node name="Card3" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane1" instance=ExtResource("3_jjvhh")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
-
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane1"]
-layout_mode = 2
-
-[node name="Lane2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Gameboard/Lanes"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_constants/separation = 40
-
-[node name="Card" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane2" instance=ExtResource("3_jjvhh")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
-
-[node name="Card2" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane2" instance=ExtResource("3_jjvhh")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
-
-[node name="Card3" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane2" instance=ExtResource("3_jjvhh")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
-
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane2"]
-layout_mode = 2
-size_flags_vertical = 4
-
-[node name="Lane3" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Gameboard/Lanes"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_constants/separation = 40
-
-[node name="Card" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane3" instance=ExtResource("3_jjvhh")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
-
-[node name="Card2" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane3" instance=ExtResource("3_jjvhh")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
-
-[node name="Card3" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane3" instance=ExtResource("3_jjvhh")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
-
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane3"]
-layout_mode = 2
-
-[node name="Lane4" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Gameboard/Lanes"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_constants/separation = 40
-
-[node name="Card" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane4" instance=ExtResource("3_jjvhh")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
-
-[node name="Card2" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane4" instance=ExtResource("3_jjvhh")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
-
-[node name="Card3" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane4" instance=ExtResource("3_jjvhh")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
-
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane4"]
-layout_mode = 2
+script = ExtResource("3_6bp64")
 
 [node name="Hand" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Gameboard"]
-custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 10
+size_flags_vertical = 6
 theme_override_constants/separation = 40
 script = ExtResource("4_kry3j")
 
@@ -208,7 +83,9 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Stats/VBoxContainer"]
+custom_minimum_size = Vector2(312, 0)
 layout_mode = 2
+size_flags_horizontal = 8
 size_flags_vertical = 3
 theme_override_constants/margin_top = 285
 theme_override_constants/margin_right = 45
@@ -242,6 +119,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.810829, 0, 0.185863, 1)
 theme_override_font_sizes/font_size = 145
-text = "Time is up, go fuck yourself"
+text = "Time is up"
 horizontal_alignment = 1
 vertical_alignment = 1
