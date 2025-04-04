@@ -9,6 +9,7 @@ enum SpellTargetType {SINGLE, ROW, LANE}
 @onready var player_unit_card_scene: PackedScene = preload("res://Scenes/player_unit_card.tscn")
 @onready var player_spell_card_scene: PackedScene = preload("res://Scenes/player_spell_card.tscn")
 @onready var enemy_unit_card_scene: PackedScene = preload("res://Scenes/enemy_unit_card.tscn")
+@onready var place_holder_card_scene: PackedScene = preload("res://Scenes/place_holder_card.tscn")
 
 @onready var card_scenes: Dictionary[CardType, PackedScene] = {
 	CardType.PLAYER_UNIT: player_unit_card_scene,

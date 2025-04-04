@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0ffn86vqcgpg"]
+
+[ext_resource type="Script" uid="uid://8d7jmmf0qwd0" path="res://Scripts/Card/PlaceHolderCard.gd" id="1_4o5yh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmcdd"]
+bg_color = Color(0.92, 0.92, 0.92, 0)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.367615, 0.37159, 0.382494, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="PlaceHolderCard" type="Panel"]
+custom_minimum_size = Vector2(150, 200)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
+script = ExtResource("1_4o5yh")
