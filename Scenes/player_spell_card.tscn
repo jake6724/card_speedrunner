@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2icyb8yktc8c"]
+
+[ext_resource type="Script" uid="uid://bq2wuqceipvj3" path="res://Scripts/Card/PlayerSpellCard.gd" id="1_axuk3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmcdd"]
+bg_color = Color(0.915189, 0.915189, 0.915189, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0.490993, 0.281213, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qqmn"]
+bg_color = Color(0.913725, 0.913725, 0.913725, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="PlayerSpellCard" type="Panel"]
+custom_minimum_size = Vector2(150, 200)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
+script = ExtResource("1_axuk3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 144.0
+offset_bottom = 194.0
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="PowerPanel" type="Panel" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0qqmn")
+
+[node name="PowerLabel" type="Label" parent="MarginContainer/VBoxContainer/PowerPanel"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0.490196, 0.282353, 1)
+theme_override_font_sizes/font_size = 35
+text = "6"
+horizontal_alignment = 1
+vertical_alignment = 1

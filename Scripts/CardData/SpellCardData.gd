@@ -1,8 +1,9 @@
 class_name SpellCardData
-extends Resource
+extends CardData
 
-@export var damage: float
-@export var target: GlobalData.spell_target_types 
+@export var power: float
+@export var target: GlobalData.SpellTargetType 
 @export var can_knockback: bool 
 @export var name: String
 @export var desc: String
+@export var type: GlobalData.CardType

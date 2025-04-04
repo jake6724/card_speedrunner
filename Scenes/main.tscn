@@ -1,53 +1,247 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbyaqvnjkj7g4"]
+[gd_scene load_steps=7 format=3 uid="uid://dbyaqvnjkj7g4"]
 
 [ext_resource type="Script" uid="uid://h2osk1c25wtq" path="res://Scripts/Main.gd" id="1_jjgbg"]
-[ext_resource type="PackedScene" uid="uid://dbls0s823lvul" path="res://Scenes/card.tscn" id="2_bo1nx"]
-[ext_resource type="PackedScene" uid="uid://3tv4od25drhu" path="res://Scenes/board.tscn" id="3_8gbba"]
-[ext_resource type="PackedScene" uid="uid://birh642khjy43" path="res://Scenes/game_timer.tscn" id="4_jjvhh"]
+[ext_resource type="Script" path="res://Scripts/Deck.gd" id="2_jjvhh"]
+[ext_resource type="Script" uid="uid://yjdeekenv05n" path="res://Scripts/GameTimer.gd" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://dbls0s823lvul" path="res://Scenes/card.tscn" id="3_jjvhh"]
+[ext_resource type="Script" uid="uid://bj30vd15s2kh8" path="res://Scripts/Hand.gd" id="4_kry3j"]
 
-[node name="Main" type="Node2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmcdd"]
+bg_color = Color(0.915189, 0.915189, 0.915189, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.188235, 0.47451, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_jjgbg")
 
-[node name="Board" parent="." instance=ExtResource("3_8gbba")]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 139.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="GameTimer" parent="." instance=ExtResource("4_jjvhh")]
-offset_left = 1803.0
-offset_top = 37.0
-offset_right = 1843.0
-offset_bottom = 77.0
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
 
-[node name="Card" parent="." instance=ExtResource("2_bo1nx")]
-offset_left = 407.0
-offset_top = 236.0
-offset_right = 447.0
-offset_bottom = 276.0
+[node name="Decks" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 8
 
-[node name="Card2" parent="." instance=ExtResource("2_bo1nx")]
-offset_left = 1201.0
-offset_top = 786.0
-offset_right = 1241.0
-offset_bottom = 826.0
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Decks"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 262
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 523
 
-[node name="Card3" parent="." instance=ExtResource("2_bo1nx")]
-offset_left = 814.0
-offset_top = 789.0
-offset_right = 854.0
-offset_bottom = 829.0
+[node name="EnemyDeck" type="Panel" parent="MarginContainer/HBoxContainer/Decks/MarginContainer"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+script = ExtResource("2_jjvhh")
 
-[node name="Card4" parent="." instance=ExtResource("2_bo1nx")]
-offset_left = 468.0
-offset_top = 706.0
-offset_right = 508.0
-offset_bottom = 746.0
+[node name="PlayerDeck" type="Panel" parent="MarginContainer/HBoxContainer/Decks/MarginContainer"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("2_jjvhh")
 
-[node name="Card5" parent="." instance=ExtResource("2_bo1nx")]
-offset_left = 1230.0
-offset_top = 347.0
-offset_right = 1270.0
-offset_bottom = 387.0
+[node name="Gameboard" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="Card6" parent="." instance=ExtResource("2_bo1nx")]
-offset_left = 806.0
-offset_top = 349.0
-offset_right = 846.0
-offset_bottom = 389.0
+[node name="Lanes" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Gameboard"]
+custom_minimum_size = Vector2(0, 1015)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Lane1" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Gameboard/Lanes"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 40
+
+[node name="Card" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane1" instance=ExtResource("3_jjvhh")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
+
+[node name="Card2" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane1" instance=ExtResource("3_jjvhh")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
+
+[node name="Card3" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane1" instance=ExtResource("3_jjvhh")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane1"]
+layout_mode = 2
+
+[node name="Lane2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Gameboard/Lanes"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 40
+
+[node name="Card" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane2" instance=ExtResource("3_jjvhh")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
+
+[node name="Card2" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane2" instance=ExtResource("3_jjvhh")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
+
+[node name="Card3" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane2" instance=ExtResource("3_jjvhh")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane2"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Lane3" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Gameboard/Lanes"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 40
+
+[node name="Card" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane3" instance=ExtResource("3_jjvhh")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
+
+[node name="Card2" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane3" instance=ExtResource("3_jjvhh")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
+
+[node name="Card3" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane3" instance=ExtResource("3_jjvhh")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane3"]
+layout_mode = 2
+
+[node name="Lane4" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Gameboard/Lanes"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 40
+
+[node name="Card" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane4" instance=ExtResource("3_jjvhh")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
+
+[node name="Card2" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane4" instance=ExtResource("3_jjvhh")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
+
+[node name="Card3" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane4" instance=ExtResource("3_jjvhh")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_gmcdd")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/Gameboard/Lanes/Lane4"]
+layout_mode = 2
+
+[node name="Hand" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Gameboard"]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_constants/separation = 40
+script = ExtResource("4_kry3j")
+
+[node name="Stats" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Stats"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Stats/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 285
+theme_override_constants/margin_right = 45
+theme_override_constants/margin_bottom = 515
+
+[node name="Timer" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Stats/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 100
+text = "1:00"
+horizontal_alignment = 2
+script = ExtResource("3_8gbba")
+
+[node name="Score" type="Label" parent="MarginContainer/HBoxContainer/Stats/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 100
+text = "0"
+horizontal_alignment = 2
+
+[node name="GameoverLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.810829, 0, 0.185863, 1)
+theme_override_font_sizes/font_size = 145
+text = "Time is up, go fuck yourself"
+horizontal_alignment = 1
+vertical_alignment = 1

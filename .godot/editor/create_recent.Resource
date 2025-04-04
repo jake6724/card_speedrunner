@@ -1,3 +1,4 @@
-EnemyUnitCardData
 PlayerUnitCardData
+CardData
+EnemyUnitCardData
 SpellCardData
