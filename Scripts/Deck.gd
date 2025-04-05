@@ -30,6 +30,6 @@ func get_next_card() -> Card:
 	if cards.size() == 0:
 		generate_new_deck()
 
-	print(cards.size())
+	# print(cards.size())
 	# TODO: Need to account for this card when regenerating deck somehow. 
 	return card

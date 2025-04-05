@@ -6,6 +6,8 @@ var score: int = 0
 enum CardType {PLAYER_UNIT, PLAYER_SPELL, ENEMY_UNIT}
 enum SpellTargetType {SINGLE, ROW, LANE}
 
+signal score_changed
+
 @onready var player_unit_card_scene: PackedScene = preload("res://Scenes/player_unit_card.tscn")
 @onready var player_spell_card_scene: PackedScene = preload("res://Scenes/player_spell_card.tscn")
 @onready var enemy_unit_card_scene: PackedScene = preload("res://Scenes/enemy_unit_card.tscn")
@@ -45,5 +47,10 @@ enum SpellTargetType {SINGLE, ROW, LANE}
 	preload("res://Data/Enemy/enemy_9.tres"),
 	preload("res://Data/Enemy/enemy_10.tres"),
 ]
+
+func increment_score() -> void:
+	score += 1
+	score_changed.emit(score)
+
 
 var moving_card: Card

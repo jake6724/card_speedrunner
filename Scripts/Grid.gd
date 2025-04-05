@@ -78,10 +78,38 @@ func on_enemy_unit_died(card):
 			var index = row.find(card)
 			row[index] = null
 
-func has_enemies() -> bool:
+	GlobalData.increment_score()
 
+func has_enemies() -> bool:
 	for y in range(grid.size() - 1):
 		for x in range(grid[y].size()):
 			if grid[y][x] != null:
 				return true
 	return false
+
+func find_card_row(card: Card) -> int:
+	for i in range(grid.size()):
+		if card in grid[i]:
+			return i
+	return -1
+			
+func get_enemy_cards_in_row(row: int) -> Array:
+	var r: Array[EnemyUnitCard] = []
+	for item in grid[row]:
+		if item is EnemyUnitCard:
+			r.append(item)
+	return r
+
+func find_card_col(card: Card) -> int:
+	for x in range(grid.size()):
+		for y in range(grid[x].size()):
+			if grid[x][y] == card:
+				return y
+	return -1000 # Idk man
+
+func get_enemy_cards_in_col(col: int) -> Array:
+	var r: Array[EnemyUnitCard] = []
+	for row in grid:
+		if row[col] is EnemyUnitCard:
+			r.append(row[col])
+	return r

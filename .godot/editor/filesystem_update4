@@ -1,11 +1,13 @@
-res://Scripts/Hand.gd
-res://Scripts/Card/EnemyUnitCard.gd
 res://Scenes/main.tscn
 res://Scenes/player_unit_card.tscn
 res://Scenes/enemy_unit_card.tscn
 res://Scenes/player_spell_card.tscn
-res://Scenes/place_holder_card.tscn
 res://Scripts/Grid.gd
+res://Scripts/Hand.gd
 res://Scripts/Main.gd
-res://Scripts/Card/PlayerSpellCard.gd
+res://Scenes/place_holder_card.tscn
 res://Scripts/Deck.gd
+res://Scripts/CardData/SpellCardData.gd
+res://Scripts/Card/PlayerSpellCard.gd
+res://Data/Player/Spells/spell_10.tres
+res://Scripts/GlobalData.gd
