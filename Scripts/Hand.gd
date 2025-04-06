@@ -68,13 +68,18 @@ func _input(_event):
 				# Reparent the Unit card under the placeholder card, and reset its position
 				var parent = selected_card.get_parent()
 				if parent:
+					# Reparent
 					parent.remove_child(selected_card)
 					grid.player_unit_spot.add_child(selected_card)
 					selected_card.position = Vector2()
+					# Signals
+					selected_card.player_unit_died.connect(on_player_unit_died)
 					selected_card.mouse_entered.disconnect(on_mouse_entered_card)
 					selected_card.mouse_exited.disconnect(on_mouse_exited_card)
-					active_units.append(selected_card)
-					selected_card.player_unit_died.connect(on_player_unit_died)
+					# # Array tracking
+					# active_units.append(selected_card)
+					# GlobalData.active_cards.append(selected_card)
+
 				reset_selected_card()
 				add_card_to_hand()
 				update_action_count()
@@ -162,5 +167,5 @@ func update_action_count():
 	elif not grid.has_enemies():
 		player_turn_complete.emit()
 
-func on_player_unit_died(card):
-	active_units.remove_at(active_units.find(card))
+# func on_player_unit_died(card):
+# 	active_units.remove_at(active_units.find(card))

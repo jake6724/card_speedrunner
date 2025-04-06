@@ -26,3 +26,6 @@ res://Data/Player/Spells/spell_8.tres
 res://Data/Player/Spells/spell_9.tres
 res://Data/Player/Spells/spell_10.tres
 res://Scripts/Deck.gd
+res://Scripts/Card/Card.gd
+res://Scripts/Card/EnemyUnitCard.gd
+res://Scripts/Card/PlayerSpellCard.gd

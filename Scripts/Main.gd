@@ -15,6 +15,7 @@ var turn_count = 1
 func _ready():
 	# Initialize decks
 	player_deck.deck_source = GlobalData.player_card_data
+	player_deck.player_hand = player_hand
 	player_deck.generate_new_deck()
 
 	enemy_deck.deck_source = GlobalData.enemy_card_data

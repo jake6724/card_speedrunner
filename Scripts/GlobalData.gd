@@ -48,6 +48,8 @@ signal score_changed
 	preload("res://Data/Enemy/enemy_10.tres"),
 ]
 
+var active_cards: Array[Card] = []
+
 func increment_score() -> void:
 	score += 1
 	score_changed.emit(score)

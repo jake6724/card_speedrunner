@@ -1,7 +1,8 @@
 class_name Deck
 extends Panel
 
-var deck_source: Array[CardData] # Setting this determines if player or enemy deck
+var deck_source: Array[CardData]
+var player_hand: Hand = null
 var cards: Array[Card]
 
 func generate_new_deck() -> void:
@@ -10,7 +11,10 @@ func generate_new_deck() -> void:
 	for card_data in deck_source:
 		card_counts[card_data.name] = 0
 
-	# TODO:  before we make the new cards, check every card in hand and on board and increment their counts
+	# Don't add active player unit cards
+	if player_hand:
+		for card in player_hand.active_units:
+			card_counts[card.data.name] += 1
 
 	var r: int
 	while cards.size() < (deck_source.size() * 2): # need to subtract cards on board from this
@@ -30,7 +34,4 @@ func get_next_card() -> Card:
 	var card = cards.pop_back()
 	if cards.size() == 0:
 		generate_new_deck()
-
-	# print(cards.size())
-	# TODO: Need to account for this card when regenerating deck somehow. 
 	return card
