@@ -37,7 +37,6 @@ signal score_changed
 	preload("res://Data/Player/Spells/spell_10.tres"),
 	preload("res://Data/Player/Units/unit_1.tres"),
 	preload("res://Data/Player/Units/unit_2.tres"),
-	preload("res://Data/Player/Units/unit_3.tres"),
 ]
 
 @onready var enemy_card_data: Array[CardData] = [
