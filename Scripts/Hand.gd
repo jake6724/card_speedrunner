@@ -12,6 +12,7 @@ var target_position: Vector2
 var action_count = 0
 
 signal player_turn_complete
+signal player_action_incremented
 
 func add_card_to_hand() -> void:
 	# Get card from deck, add to hand array, add child
@@ -74,9 +75,6 @@ func _input(_event):
 					selected_card.mouse_exited.disconnect(on_mouse_exited_card)
 					active_units.append(selected_card)
 					selected_card.player_unit_died.connect(on_player_unit_died)
-
-				# attack_with_unit(selected_card)
-
 				reset_selected_card()
 				add_card_to_hand()
 				update_action_count()
@@ -156,17 +154,13 @@ func has_unit_card() -> bool:
 	return false
 
 func update_action_count():
-	print("Action count = ", action_count)
 	action_count += 1
-	# print("Action count: ", action_count)
+	player_action_incremented.emit(action_count)
 	if action_count >= 3:
-		print("emitting player_turn_complete")
 		player_turn_complete.emit()
 
-	elif not grid.has_enemies(): # and not has_unit_card(): # No enemies and only spell cards
+	elif not grid.has_enemies():
 		player_turn_complete.emit()
 
 func on_player_unit_died(card):
 	active_units.remove_at(active_units.find(card))
-
-	# TODO: Need to check for only units and no slots

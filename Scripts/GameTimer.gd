@@ -17,7 +17,6 @@ func _ready():
 func _process(_delta):
 	if timer.time_left == 0:
 		text = "0:00"
-		print("Gameover!")
 		gameover.emit()
 	else:
 		left_number = str(int(timer.time_left) / 60)

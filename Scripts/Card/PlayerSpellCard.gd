@@ -5,8 +5,7 @@ extends Card
 @onready var target_label: Label = $MarginContainer/VBoxContainer/TargetPanel/TargetLabel
 
 func _ready():
-	z_index = 1
-	pass
+	z_index = 3
 
 func update_labels() -> void:
 	power_label.text = str(int(data.power))

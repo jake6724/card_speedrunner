@@ -12,14 +12,11 @@ var place_holder_cards: Array[PlaceHolderCard] = []
 
 signal timer_attacked
 
-var grid: Array[Array] = [ # Consider initializing with empty card ? That way we could use these to detect if we clicked a empty spot?
+var grid: Array[Array] = [
 	[null, null, null, null],
 	[null, null, null, null],
 	[null, null, null, null],
 	[null, null, null, null]]
-
-func _process(delta):
-	pass
 
 func _ready():
 	# Configure placeholder cards in row 4
@@ -28,22 +25,14 @@ func _ready():
 		grid[3][i] = new_card
 		new_card.position = margin_buffer + Vector2(i, 3) * (cell_size + buffer)
 		add_child(new_card)
-
+		place_holder_cards.append(new_card)
 		new_card.mouse_entered.connect(on_place_holder_card_entered.bind(new_card))
 		new_card.mouse_exited.connect(on_place_holder_card_exited)
-
-		place_holder_cards.append(new_card)
 
 func add_enemy_to_grid(card):
 	var col = GlobalData.rng.randi_range(0,3)
 
-	# grid[0][col] = card
-	# card.position = margin_buffer + Vector2(col, 0) * (cell_size + buffer)
-	# add_child(card)
-	# card.mouse_entered.connect(on_enemy_unit_card_entered.bind(card))
-	# card.mouse_exited.connect(on_enemy_unit_card_exited.bind(card))
-	# card.enemy_unit_died.connect(on_enemy_unit_died.bind(card))
-
+	# If not card in starting row/col, place new card
 	if not grid[0][col]:
 		grid[0][col] = card
 		card.position = margin_buffer + Vector2(col, 0) * (cell_size + buffer)
@@ -52,7 +41,8 @@ func add_enemy_to_grid(card):
 		card.mouse_exited.connect(on_enemy_unit_card_exited.bind(card))
 		card.enemy_unit_died.connect(on_enemy_unit_died.bind(card))
 
-	else: # TODO: This can eventually be removed, as all enemy cards will move down 1 at the beginning over each turn
+	# Else, shift occupying card down and then place new card
+	else: 
 		shift_column_down(col)
 		grid[0][col] = card
 		card.position = margin_buffer + Vector2(col, 0) * (cell_size + buffer)
@@ -63,13 +53,7 @@ func add_enemy_to_grid(card):
 
 	card.call_deferred("update_labels") # Children nodes (e.i the labels) may not have loaded into scene tree yet
 
-# ROW 0
-# ROW 1
-# ROW 2
-# ROW 3 = UNITS
-
 func shift_column_down(col): # Only moves enemy cards 
-	#for i in range((columns - 1), -1, -1):
 	for i in range(2, -1, -1):
 		if grid[i][col]:
 			if i != 2:
@@ -78,27 +62,18 @@ func shift_column_down(col): # Only moves enemy cards
 					grid[i][col] = null
 
 			else: 
-
-				# Just create an array of place holder cards, each one is at the correct index corresponding to lane
-				# check if it has a child that is a player unit card; if so fuck that bitch up
 				var player_unit = get_place_holder_child(place_holder_cards[col])
-
+				# Attack lane's player unit if it exists
 				if player_unit:
 					print("Should attack a unit")
 					player_unit.take_damage(grid[i][col].data.power)
 					var time_reduction = grid[i][col].data.power - player_unit.data.health
-
 					timer_attacked.emit(time_reduction)
-
+				# Else attack timer directly
 				else:
-					# var time_reduction = grid[i][col].data.power
 					timer_attacked.emit(grid[i][col].data.power)
 
-				# Find if there is a unit card in the enemy card's column
-				
-				# Find if it kills unit card
-				# Find left over damage 
-				# Subtract timer time based on damage
+				# Remove attacker
 				grid[i][col].queue_free()
 				grid[i][col] = null
 
@@ -107,7 +82,7 @@ func shift_all_columns_down():
 		shift_column_down(i)
 
 func on_enemy_unit_card_entered(card):
-	if card is EnemyUnitCard: # Not really needed I dont think
+	if card is EnemyUnitCard:
 		selected_enemy = card
 
 func on_enemy_unit_card_exited(card):
@@ -153,7 +128,7 @@ func find_card_col(card: Card) -> int:
 		for y in range(grid[x].size()):
 			if grid[x][y] == card:
 				return y
-	return -1000 # Idk man
+	return -1000
 
 func get_enemy_cards_in_col(col: int) -> Array:
 	var r: Array[EnemyUnitCard] = []
@@ -167,5 +142,4 @@ func get_place_holder_child(place_holder_card):
 		print(child)
 		if child is PlayerUnitCard:
 			return child
-
 	return null

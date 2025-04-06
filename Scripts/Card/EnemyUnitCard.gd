@@ -5,7 +5,7 @@ extends Card
 signal enemy_unit_died
 
 func _ready():
-	pass
+	z_index = 1
 
 func update_labels() -> void:
 	power_label.text = str(int(data.power))

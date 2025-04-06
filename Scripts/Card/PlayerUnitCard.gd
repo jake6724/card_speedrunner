@@ -7,7 +7,7 @@ extends Card
 signal player_unit_died
 
 func _ready():
-	pass
+	z_index = 2
 
 func update_labels() -> void:
 	health_label.text = str(int(data.health))
