@@ -12,12 +12,14 @@ func generate_new_deck() -> void:
 		card_counts[card_data.name] = 0
 
 	# Don't add active player unit cards
+	var size_reduction = 0
 	if player_hand:
 		for card in player_hand.active_units:
 			card_counts[card.data.name] += 1
+			size_reduction += 1
 
 	var r: int
-	while cards.size() < (deck_source.size() * 2): # need to subtract cards on board from this
+	while cards.size() < ((deck_source.size() * 2) - size_reduction): # need to subtract cards on board from this
 		r = GlobalData.rng.randi_range(0, deck_source.size() - 1)
 
 		if card_counts[(deck_source[r].name)] < 2:
@@ -31,7 +33,7 @@ func generate_new_deck() -> void:
 ## Get card on the top of the deck. 
 ## This function is responsible for regeneration `cards` if it is empty
 func get_next_card() -> Card:
-	var card = cards.pop_back()
 	if cards.size() == 0:
 		generate_new_deck()
+	var card = cards.pop_back()
 	return card

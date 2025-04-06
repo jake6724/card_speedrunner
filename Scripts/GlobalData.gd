@@ -6,6 +6,8 @@ var score: int = 0
 enum CardType {PLAYER_UNIT, PLAYER_SPELL, ENEMY_UNIT}
 enum SpellTargetType {SINGLE, ROW, LANE}
 
+@onready var audio: AudioStream
+
 signal score_changed
 
 @onready var player_unit_card_scene: PackedScene = preload("res://Scenes/player_unit_card.tscn")

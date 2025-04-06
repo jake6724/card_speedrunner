@@ -65,7 +65,6 @@ func shift_column_down(col): # Only moves enemy cards
 				var player_unit = get_place_holder_child(place_holder_cards[col])
 				# Attack lane's player unit if it exists
 				if player_unit:
-					print("Should attack a unit")
 					player_unit.take_damage(grid[i][col].data.power)
 					var time_reduction = grid[i][col].data.power - player_unit.data.health
 					timer_attacked.emit(time_reduction)
@@ -139,7 +138,6 @@ func get_enemy_cards_in_col(col: int) -> Array:
 
 func get_place_holder_child(place_holder_card):
 	for child in place_holder_card.get_children():
-		print(child)
 		if child is PlayerUnitCard:
 			return child
 	return null
