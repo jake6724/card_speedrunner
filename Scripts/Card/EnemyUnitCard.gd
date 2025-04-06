@@ -1,7 +1,7 @@
 class_name EnemyUnitCard
 extends Card
 
-@onready var power_label: Label = $MarginContainer/VBoxContainer/PowerPanel/PowerLabel
+@onready var power_label: Label = $MarginContainer/PowerPanel/PowerLabel
 signal enemy_unit_died
 
 func _ready():

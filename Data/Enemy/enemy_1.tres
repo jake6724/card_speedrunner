@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_tfvud")
-power = 0.0
-name = ""
+power = 4.0
+name = "Enemy1"
 desc = ""
 type = 2
 metadata/_custom_type_script = "uid://dddwajd6cemp3"

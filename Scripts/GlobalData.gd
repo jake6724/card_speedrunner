@@ -51,6 +51,3 @@ signal score_changed
 func increment_score() -> void:
 	score += 1
 	score_changed.emit(score)
-
-
-var moving_card: Card

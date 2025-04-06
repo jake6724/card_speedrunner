@@ -24,7 +24,6 @@ func add_card_to_hand() -> void:
 	new_card.mouse_entered.connect(on_mouse_entered_card.bind(new_card))
 	new_card.mouse_exited.connect(on_mouse_exited_card.bind(new_card))
 
-	print(hand)
 func initialize_hand():
 	for i in range(4):
 		add_card_to_hand()
@@ -83,7 +82,6 @@ func _input(_event):
 
 			# Cast Spell Card
 			elif selected_card is PlayerSpellCard and grid.selected_enemy: # Cast spell card on enemy
-				print("Took Spell")
 				selected_card.global_position = grid.selected_enemy.global_position
 				cast_spell_card(selected_card, grid.selected_enemy) 
 
@@ -93,7 +91,6 @@ func _input(_event):
 
 			# No Action, place card back in hand
 			else:
-				print("Took Else")
 				selected_card.position = starting_position
 				selected_card.mouse_filter = Control.MOUSE_FILTER_STOP
 				starting_position = Vector2()
@@ -106,13 +103,15 @@ func _input(_event):
 			selected_card.position = starting_position
 			selected_card = null
 
+	if Input.is_action_just_pressed("end_turn"):
+		player_turn_complete.emit()
+
 func reset_selected_card():
 	hand.remove_at(hand.find(selected_card))
 	selected_card.mouse_filter = Control.MOUSE_FILTER_STOP
 	selected_card = null
 	starting_position = Vector2()
 	target_position = Vector2()
-	update_action_count()
 
 func attack_with_all_units():
 	for card in active_units:
@@ -147,8 +146,24 @@ func cast_spell_card(player_spell, enemy_card):
 
 	selected_card.queue_free()
 
+func has_unit_card() -> bool:
+	for card in hand:
+		if card is PlayerUnitCard:
+			return true
+		else:
+			return false
+	return false
+
 func update_action_count():
+	print("Action count = ", action_count)
 	action_count += 1
 	# print("Action count: ", action_count)
 	if action_count >= 3:
+		print("emitting player_turn_complete")
 		player_turn_complete.emit()
+
+		
+	# elif not grid.has_enemies() and not has_unit_card(): # No enemies and only spell cards
+	# 	player_turn_complete.emit()
+
+	# TODO: Need to check for only units and no slots

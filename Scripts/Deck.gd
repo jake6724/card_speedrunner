@@ -6,22 +6,23 @@ var cards: Array[Card]
 
 func generate_new_deck() -> void:
 	# Initialize card counts
-	var card_counts: Dictionary[CardData, int] = {}
+	var card_counts: Dictionary[String, int] = {}
 	for card_data in deck_source:
-		card_counts[card_data] = 0
+		card_counts[card_data.name] = 0
 
 	# TODO:  before we make the new cards, check every card in hand and on board and increment their counts
 
 	var r: int
 	while cards.size() < (deck_source.size() * 2): # need to subtract cards on board from this
 		r = GlobalData.rng.randi_range(0, deck_source.size() - 1)
-		var new_card_data = deck_source[r]
-		if card_counts[new_card_data] < 2:
-			# Instatiate and initial card scene based on retrieved card data
+
+		if card_counts[(deck_source[r].name)] < 2:
+			var new_card_data: CardData = (deck_source[r]).duplicate()
+			# Instatiate and initialize card scene based on retrieved card data
 			var new_card: Card = GlobalData.card_scenes[new_card_data.type].instantiate()
 			new_card.data = new_card_data
 			cards.append(new_card)
-			card_counts[new_card_data] += 1
+			card_counts[deck_source[r].name] += 1
 
 ## Get card on the top of the deck. 
 ## This function is responsible for regeneration `cards` if it is empty

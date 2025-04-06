@@ -31,6 +31,14 @@ func _ready():
 
 func add_enemy_to_grid(card):
 	var col = GlobalData.rng.randi_range(0,3)
+
+	# grid[0][col] = card
+	# card.position = margin_buffer + Vector2(col, 0) * (cell_size + buffer)
+	# add_child(card)
+	# card.mouse_entered.connect(on_enemy_unit_card_entered.bind(card))
+	# card.mouse_exited.connect(on_enemy_unit_card_exited.bind(card))
+	# card.enemy_unit_died.connect(on_enemy_unit_died.bind(card))
+
 	if not grid[0][col]:
 		grid[0][col] = card
 		card.position = margin_buffer + Vector2(col, 0) * (cell_size + buffer)
@@ -50,13 +58,29 @@ func add_enemy_to_grid(card):
 
 	card.call_deferred("update_labels") # Children nodes (e.i the labels) may not have loaded into scene tree yet
 
+# ROW 0
+# ROW 1
+# ROW 2
+# ROW 3 = UNITS
+
 func shift_column_down(col):
-	for i in range((columns - 1), -1, -1):
-		if (i + 1) < 3: 
-			if grid[i][col]:
-				grid[i][col].position = margin_buffer + Vector2(col, i + 1) * (cell_size + buffer)
-				grid[i + 1][col] = grid[i][col]
-				grid[i][col] = null
+	#for i in range((columns - 1), -1, -1):
+	for i in range(2, -1, -1):
+		if grid[i][col]:
+			# if (i + 1) < 3: # Goes up to row 3
+			if i != 2:
+					grid[i][col].position = margin_buffer + Vector2(col, i + 1) * (cell_size + buffer)
+					grid[i + 1][col] = grid[i][col]
+					grid[i][col] = null
+
+			# elif (i + 1) == 3: 
+			else: 
+					grid[i][col].queue_free()
+					grid[i][col] = null
+
+func shift_all_columns_down():
+	for i in range(4):
+		shift_column_down(i)
 
 func on_enemy_unit_card_entered(card):
 	if card is EnemyUnitCard: # Not really needed I dont think

@@ -6,7 +6,7 @@
 script = ExtResource("1_rj1yc")
 power = 1.0
 health = 8.0
-name = ""
+name = "Unit3"
 desc = ""
 type = 0
 metadata/_custom_type_script = "uid://2q7v8gat5h08"
