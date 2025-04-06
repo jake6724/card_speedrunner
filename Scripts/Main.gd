@@ -56,7 +56,7 @@ func on_player_turn_complete():
 
 func on_gameover():
 	gameover_label.visible = true
-	# get_tree().paused = true
+	get_tree().paused = true
 
 func on_score_changed(new_score):
 	score_label.text = str(new_score)
@@ -72,6 +72,6 @@ func on_timer_attacked(time_reduction):
 func on_player_action_incremented(action_count: int):
 	action_count_label.text = str(action_count)
 
-func _input(_event):
-	if Input.is_action_just_pressed("x"):
-		get_tree().change_scene_to_file("res://Scenes/main.tscn")
+# func _input(_event):
+# 	if Input.is_action_just_pressed("x"):
+# 		get_tree().change_scene_to_file("res://Scenes/main.tscn")

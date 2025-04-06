@@ -62,6 +62,8 @@ func _input(_event):
 			selected_card = hover_card 
 			selected_card.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			hover_card = null
+			GlobalData.audio.stream = GlobalData.sounds["click_card"]
+			GlobalData.audio.play()
 
 	if Input.is_action_just_released("left_click"):
 		if selected_card:
@@ -108,8 +110,8 @@ func _input(_event):
 			selected_card.position = starting_position
 			selected_card = null
 
-	if Input.is_action_just_pressed("end_turn"):
-		player_turn_complete.emit()
+	# if Input.is_action_just_pressed("end_turn"):
+	# 	player_turn_complete.emit()
 
 func reset_selected_card():
 	hand.remove_at(hand.find(selected_card))

@@ -10,6 +10,7 @@ enum SpellTargetType {SINGLE, ROW, LANE}
 
 func _ready():
 	add_child(audio)
+	audio.volume_db = -11
 
 signal score_changed
 
@@ -52,9 +53,11 @@ signal score_changed
 	preload("res://Data/Enemy/enemy_10.tres"),
 ]
 
-@onready var sounds: Dictionary = {
+@onready var sounds: Dictionary[String, AudioStream] = {
 	"hover_card": preload("res://Audio/hover_card.mp3"),
 	"enemy_death": preload("res://Audio/enemy_death.mp3"),
+	"click_card": preload("res://Audio/click_card.wav"),
+
 }
 
 var active_cards: Array[Card] = []
