@@ -53,7 +53,8 @@ signal score_changed
 ]
 
 @onready var sounds: Dictionary = {
-	"hover_card": preload("res://Audio/hover_card.mp3")
+	"hover_card": preload("res://Audio/hover_card.mp3"),
+	"enemy_death": preload("res://Audio/enemy_death.mp3"),
 }
 
 var active_cards: Array[Card] = []

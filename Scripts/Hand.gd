@@ -43,8 +43,8 @@ func on_mouse_entered_card(card):
 				hover_card = card
 				starting_position = hover_card.position
 				target_position = hover_card.position - Vector2(0,20)
-				GlobalData.audio.stream = GlobalData.sounds["hover_card"]
-				GlobalData.audio.play()
+				# GlobalData.audio.stream = GlobalData.sounds["hover_card"]
+				# GlobalData.audio.play()
 
 func on_mouse_exited_card(card):
 	if card is Card:

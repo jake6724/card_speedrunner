@@ -29,3 +29,5 @@ res://Scripts/Deck.gd
 res://Scripts/Card/Card.gd
 res://Scripts/Card/EnemyUnitCard.gd
 res://Scripts/Card/PlayerSpellCard.gd
+res://Data/Player/Units/unit_1.tres
+res://Data/Player/Units/unit_2.tres
