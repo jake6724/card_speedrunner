@@ -164,8 +164,9 @@ func update_action_count():
 		player_turn_complete.emit()
 
 
-	# elif not grid.has_enemies() and not has_unit_card(): # No enemies and only spell cards
-	# 	player_turn_complete.emit()
+	elif not grid.has_enemies() and not has_unit_card(): # No enemies and only spell cards
+		print("Assuming no enemies and no spell cards")
+		player_turn_complete.emit()
 
 func on_player_unit_died(card):
 	active_units.remove_at(active_units.find(card))
