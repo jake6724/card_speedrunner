@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_t0jxu")
-power = 10.0
+power = 15.0
 name = "Enemy7"
 desc = "Test"
 type = 2

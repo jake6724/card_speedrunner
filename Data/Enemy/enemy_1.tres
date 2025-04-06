@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_tfvud")
-power = 4.0
+power = 9.0
 name = "Enemy1"
 desc = ""
 type = 2

@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_ocpae")
-power = 13.0
+power = 18.0
 name = "Enemy10"
 desc = "Test"
 type = 2
