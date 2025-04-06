@@ -17,6 +17,5 @@ func take_damage(damage: float) -> void:
 	data.health -= damage
 	if data.health <= 0:
 		player_unit_died.emit(self)
-		queue_free()
 	else:
 		call_deferred("update_labels")
