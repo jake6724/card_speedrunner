@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_j5y6r")
-power = 7.0
-target = 2
+power = 15.0
+target = 0
 can_knockback = true
 name = "Spell10"
 desc = "Test"
