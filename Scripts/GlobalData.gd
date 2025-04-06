@@ -6,7 +6,10 @@ var score: int = 0
 enum CardType {PLAYER_UNIT, PLAYER_SPELL, ENEMY_UNIT}
 enum SpellTargetType {SINGLE, ROW, LANE}
 
-@onready var audio: AudioStream
+@onready var audio: AudioStreamPlayer = AudioStreamPlayer.new()
+
+func _ready():
+	add_child(audio)
 
 signal score_changed
 
@@ -49,6 +52,10 @@ signal score_changed
 	preload("res://Data/Enemy/enemy_9.tres"),
 	preload("res://Data/Enemy/enemy_10.tres"),
 ]
+
+@onready var sounds: Dictionary = {
+	"hover_card": preload("res://Audio/hover_card.mp3")
+}
 
 var active_cards: Array[Card] = []
 

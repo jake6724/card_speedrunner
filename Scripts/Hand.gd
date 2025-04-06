@@ -43,6 +43,8 @@ func on_mouse_entered_card(card):
 				hover_card = card
 				starting_position = hover_card.position
 				target_position = hover_card.position - Vector2(0,20)
+				GlobalData.audio.stream = GlobalData.sounds["hover_card"]
+				GlobalData.audio.play()
 
 func on_mouse_exited_card(card):
 	if card is Card:
@@ -117,22 +119,17 @@ func reset_selected_card():
 	target_position = Vector2()
 
 func attack_with_all_units():
-	print("test")
-	print("Active units: ", active_units)
 	for card in active_units:
-		print("Active unit: ", card)
 		if card is PlayerUnitCard:
 			attack_with_unit(card)
 
 func attack_with_unit(unit: PlayerUnitCard):
-	print("attacking with unit: ", unit)
 	# Find this cards column
 	var col_index = grid.find_card_col(unit.get_parent())
 	
 	# Attack the lowest enemy card in the same column (enemies will never be in last row)
 	var col_enemies: Array[EnemyUnitCard] = grid.get_enemy_cards_in_col(col_index)
 	if col_enemies:
-		print("dealing damage to: ", col_enemies[-1])
 		col_enemies[-1].take_damage(unit.data.power)
 
 func cast_spell_card(player_spell, enemy_card):
@@ -172,6 +169,5 @@ func update_action_count():
 		player_turn_complete.emit()
 
 func on_player_unit_died(card):
-	print(card)
 	active_units.remove_at(active_units.find(card))
 	card.queue_free()
