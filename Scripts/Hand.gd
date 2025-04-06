@@ -73,7 +73,7 @@ func _input(_event):
 					grid.player_unit_spot.add_child(selected_card)
 					selected_card.position = Vector2()
 					# Signals
-					selected_card.player_unit_died.connect(on_player_unit_died)
+					# selected_card.player_unit_died.connect(on_player_unit_died)
 					selected_card.mouse_entered.disconnect(on_mouse_entered_card)
 					selected_card.mouse_exited.disconnect(on_mouse_exited_card)
 					# # Array tracking
