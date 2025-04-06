@@ -8,3 +8,4 @@ res://Scripts/Grid.gd
 res://Scripts/Card/PlayerUnitCard.gd
 res://Scripts/Hand.gd
 res://Scripts/GameTimer.gd
+res://Scripts/GlobalData.gd

@@ -1,3 +1,4 @@
+MarginContainer
 Label
 ColorRect
 Control
@@ -5,7 +6,6 @@ CenterContainer
 RichTextLabel
 HSeparator
 VBoxContainer
-MarginContainer
 Panel
 PanelContainer
 HBoxContainer

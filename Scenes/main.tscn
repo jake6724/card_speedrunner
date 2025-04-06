@@ -30,27 +30,30 @@ theme_override_constants/margin_top = 25
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Decks" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 170
+
+[node name="Decks" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 8
+theme_override_constants/separation = 255
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Decks"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 262
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 523
-
-[node name="EnemyDeck" type="Panel" parent="MarginContainer/HBoxContainer/Decks/MarginContainer"]
+[node name="EnemyDeck" type="Panel" parent="MarginContainer/HBoxContainer/MarginContainer/Decks"]
 custom_minimum_size = Vector2(150, 200)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 0
+size_flags_vertical = 4
 script = ExtResource("2_jjvhh")
 
-[node name="PlayerDeck" type="Panel" parent="MarginContainer/HBoxContainer/Decks/MarginContainer"]
+[node name="TurnCount" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/Decks"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 100
+text = "0"
+
+[node name="PlayerDeck" type="Panel" parent="MarginContainer/HBoxContainer/MarginContainer/Decks"]
 custom_minimum_size = Vector2(150, 200)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -83,8 +86,8 @@ custom_minimum_size = Vector2(312, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 3
-theme_override_constants/margin_top = 60
-theme_override_constants/margin_bottom = 385
+theme_override_constants/margin_top = 245
+theme_override_constants/margin_bottom = 395
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Stats/MarginContainer"]
 custom_minimum_size = Vector2(0, 442.88)

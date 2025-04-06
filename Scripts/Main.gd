@@ -39,14 +39,14 @@ func on_player_turn_complete():
 	turn_count += 1
 	turn_label.text = "Turn: " + str(turn_count)
 
+	# Reset hand stats, attack with player units
+	player_hand.action_count = 0
+	player_hand.attack_with_all_units()
+
 	# Run enemy actions
 	grid.shift_all_columns_down()
 	grid.add_enemy_to_grid(enemy_deck.get_next_card())
 	grid.add_enemy_to_grid(enemy_deck.get_next_card())
-
-	# Reset hand stats, attack with player units
-	player_hand.action_count = 0
-	player_hand.attack_with_all_units()
 
 func on_gameover():
 	gameover_label.visible = true
@@ -66,4 +66,4 @@ func on_timer_attacked(time_reduction):
 
 func _input(_event):
 	if Input.is_action_just_pressed("x"):
-		grid.add_enemy_to_grid(enemy_deck.get_next_card())
+		get_tree().change_scene_to_file("res://Scenes/main.tscn")
