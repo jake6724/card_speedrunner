@@ -26,7 +26,7 @@ res://Scenes/deck.tscn::8a9047d16a56ba57f21ab31932345ae8::1743645410::res://.god
 res://Scenes/enemy_unit_card.tscn::bf37fb889d4f1f6c81c0c78283b59d97::1743957697::res://.godot/exported/133200997/export-c6ff7788ba598abd25aff8d9a0da2c82-enemy_unit_card.scn
 res://Scenes/game_timer.tscn::ffb1e020b781c03ea0eb0cb3234f2615::1743546489::res://.godot/exported/133200997/export-a6276e0d29d9a676fa858f23f49f1b89-game_timer.scn
 res://Scenes/hand.tscn::47aa1bf77852b452176f3c8ff695757e::1743645410::res://.godot/exported/133200997/export-982c59ee2a4532b418fb470937e0e9a9-hand.scn
-res://Scenes/main.tscn::54e07938467906c0df32b7230e4e068b::1743967095::res://.godot/exported/133200997/export-2ddd04d543d5858e7f20c9299a8b5096-main.scn
+res://Scenes/main.tscn::54e07938467906c0df32b7230e4e068b::1743980222::res://.godot/exported/133200997/export-2ddd04d543d5858e7f20c9299a8b5096-main.scn
 res://Scenes/place_holder_card.tscn::e8aa96be79491495950a0ae8f20c4b5f::1743957746::res://.godot/exported/133200997/export-d9fcbecdc79d052bbbe73b71596e35a2-place_holder_card.scn
 res://Scenes/player_spell_card.tscn::476ff068097bbc6a4afc2c616ae15ba0::1743957697::res://.godot/exported/133200997/export-00dc7fa31e31593cf7dce3dbf2b38951-player_spell_card.scn
 res://Scenes/player_unit_card.tscn::d54fe1ac8f6ed65017f8f559facb8795::1743957697::res://.godot/exported/133200997/export-96a872bad6c91a198d80a9abef25be42-player_unit_card.scn
