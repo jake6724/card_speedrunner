@@ -1,1 +1,1 @@
-**Play the game [here](https://jake6724.github.io/card_speedrunner/)**
+**Play the game [HERE](https://jake6724.github.io/card_speedrunner/)**
