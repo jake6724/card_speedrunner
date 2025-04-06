@@ -15,7 +15,6 @@ func _ready():
 	timer.one_shot = true
 
 func _process(_delta):
-
 	if timer.time_left == 0:
 		text = "0:00"
 		print("Gameover!")

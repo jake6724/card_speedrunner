@@ -73,6 +73,7 @@ func _input(_event):
 					selected_card.mouse_entered.disconnect(on_mouse_entered_card)
 					selected_card.mouse_exited.disconnect(on_mouse_exited_card)
 					active_units.append(selected_card)
+					selected_card.player_unit_died.connect(on_player_unit_died)
 
 				attack_with_unit(selected_card)
 
@@ -162,8 +163,11 @@ func update_action_count():
 		print("emitting player_turn_complete")
 		player_turn_complete.emit()
 
-		
+
 	# elif not grid.has_enemies() and not has_unit_card(): # No enemies and only spell cards
 	# 	player_turn_complete.emit()
+
+func on_player_unit_died(card):
+	active_units.remove_at(active_units.find(card))
 
 	# TODO: Need to check for only units and no slots

@@ -8,6 +8,9 @@ var margin_buffer: Vector2 = Vector2(250,0)
 
 var player_unit_spot: PlaceHolderCard
 var selected_enemy: EnemyUnitCard
+var place_holder_cards: Array[PlaceHolderCard] = []
+
+signal timer_attacked
 
 var grid: Array[Array] = [ # Consider initializing with empty card ? That way we could use these to detect if we clicked a empty spot?
 	[null, null, null, null],
@@ -28,6 +31,8 @@ func _ready():
 
 		new_card.mouse_entered.connect(on_place_holder_card_entered.bind(new_card))
 		new_card.mouse_exited.connect(on_place_holder_card_exited)
+
+		place_holder_cards.append(new_card)
 
 func add_enemy_to_grid(card):
 	var col = GlobalData.rng.randi_range(0,3)
@@ -63,20 +68,39 @@ func add_enemy_to_grid(card):
 # ROW 2
 # ROW 3 = UNITS
 
-func shift_column_down(col):
+func shift_column_down(col): # Only moves enemy cards 
 	#for i in range((columns - 1), -1, -1):
 	for i in range(2, -1, -1):
 		if grid[i][col]:
-			# if (i + 1) < 3: # Goes up to row 3
 			if i != 2:
 					grid[i][col].position = margin_buffer + Vector2(col, i + 1) * (cell_size + buffer)
 					grid[i + 1][col] = grid[i][col]
 					grid[i][col] = null
 
-			# elif (i + 1) == 3: 
 			else: 
-					grid[i][col].queue_free()
-					grid[i][col] = null
+
+				# Just create an array of place holder cards, each one is at the correct index corresponding to lane
+				# check if it has a child that is a player unit card; if so fuck that bitch up
+				var player_unit = get_place_holder_child(place_holder_cards[col])
+
+				if player_unit:
+					print("Should attack a unit")
+					player_unit.take_damage(grid[i][col].data.power)
+					var time_reduction = grid[i][col].data.power - player_unit.data.health
+
+					timer_attacked.emit(time_reduction)
+
+				else:
+					# var time_reduction = grid[i][col].data.power
+					timer_attacked.emit(grid[i][col].data.power)
+
+				# Find if there is a unit card in the enemy card's column
+				
+				# Find if it kills unit card
+				# Find left over damage 
+				# Subtract timer time based on damage
+				grid[i][col].queue_free()
+				grid[i][col] = null
 
 func shift_all_columns_down():
 	for i in range(4):
@@ -137,3 +161,11 @@ func get_enemy_cards_in_col(col: int) -> Array:
 		if row[col] is EnemyUnitCard:
 			r.append(row[col])
 	return r
+
+func get_place_holder_child(place_holder_card):
+	for child in place_holder_card.get_children():
+		print(child)
+		if child is PlayerUnitCard:
+			return child
+
+	return null
