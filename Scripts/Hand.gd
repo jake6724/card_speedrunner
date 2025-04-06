@@ -75,7 +75,7 @@ func _input(_event):
 					active_units.append(selected_card)
 					selected_card.player_unit_died.connect(on_player_unit_died)
 
-				attack_with_unit(selected_card)
+				# attack_with_unit(selected_card)
 
 				reset_selected_card()
 				add_card_to_hand()
@@ -162,7 +162,6 @@ func update_action_count():
 	if action_count >= 3:
 		print("emitting player_turn_complete")
 		player_turn_complete.emit()
-
 
 	elif not grid.has_enemies() and not has_unit_card(): # No enemies and only spell cards
 		print("Assuming no enemies and no spell cards")
