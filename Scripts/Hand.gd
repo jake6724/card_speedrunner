@@ -77,8 +77,7 @@ func _input(_event):
 					selected_card.mouse_entered.disconnect(on_mouse_entered_card)
 					selected_card.mouse_exited.disconnect(on_mouse_exited_card)
 					# # Array tracking
-					# active_units.append(selected_card)
-					# GlobalData.active_cards.append(selected_card)
+					active_units.append(selected_card)
 
 				reset_selected_card()
 				add_card_to_hand()
@@ -118,17 +117,22 @@ func reset_selected_card():
 	target_position = Vector2()
 
 func attack_with_all_units():
+	print("test")
+	print("Active units: ", active_units)
 	for card in active_units:
+		print("Active unit: ", card)
 		if card is PlayerUnitCard:
 			attack_with_unit(card)
 
 func attack_with_unit(unit: PlayerUnitCard):
+	print("attacking with unit: ", unit)
 	# Find this cards column
 	var col_index = grid.find_card_col(unit.get_parent())
 	
 	# Attack the lowest enemy card in the same column (enemies will never be in last row)
 	var col_enemies: Array[EnemyUnitCard] = grid.get_enemy_cards_in_col(col_index)
 	if col_enemies:
+		print("dealing damage to: ", col_enemies[-1])
 		col_enemies[-1].take_damage(unit.data.power)
 
 func cast_spell_card(player_spell, enemy_card):
