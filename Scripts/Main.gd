@@ -56,6 +56,7 @@ func on_player_turn_complete():
 
 func on_gameover():
 	gameover_label.visible = true
+	# get_tree().paused = true
 
 func on_score_changed(new_score):
 	score_label.text = str(new_score)

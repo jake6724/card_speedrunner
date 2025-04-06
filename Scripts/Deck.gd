@@ -17,6 +17,9 @@ func generate_new_deck() -> void:
 		for card in player_hand.active_units:
 			card_counts[card.data.name] += 1
 			size_reduction += 1
+		for card in player_hand.hand:
+			card_counts[card.data.name] += 1
+			size_reduction += 1
 
 	var r: int
 	while cards.size() < ((deck_source.size() * 2) - size_reduction): # need to subtract cards on board from this
